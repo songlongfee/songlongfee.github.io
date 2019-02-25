@@ -55,13 +55,14 @@ DrawImage.prototype = {
 };
 
 let cvs = document.getElementById("cvs");
+let ctx = cvs.getContext('2d');
 let winWidth = document.body.clientWidth;
-let winHeight = document.body.clientHeight;
+// let winHeight = document.body.clientHeight;
 let brushColor = '#0099ff';
 let cellSize = 10;
 
-cvs.width = winWidth;
-cvs.height = winHeight;
+// cvs.width = winWidth;
+// cvs.height = winHeight;
 
 var di = new DrawImage({
   dataSet: [],
@@ -72,25 +73,48 @@ var di = new DrawImage({
 });
 
 di.init();
-
-
-
 di.size = cellSize;
 
+document.oncontextmenu=new Function("event.returnValue=false;");
+document.getElementById('root').style.width = winWidth + 'px';
+
+var type = 0;
+var dX = 0;
+var dY = 0;
+var sX = cvs.width;
+var sY = cvs.height;
+
 $('#cvs').on('mousedown', function (e) {
+  e.preventDefault();
   di.canAddDot = true;
+  if(e.which == 1) {
+    type = 1;
+  } else if(e.which == 3) {
+    type = 3;
+  }
+  dX = e.offsetX;
+  dY = e.offsetY;
 });
 
 $('#cvs').on('mousemove', function (e) {
-  if(di.canAddDot) {
-    var x = e.offsetX,
-        y = e.offsetY;
+  var x = e.offsetX,
+      y = e.offsetY;
+  if(di.canAddDot && type === 1) {
     di.addDot(x, y, brushColor);
+  } else if(type === 3) {
+    rX = ((dX - x)/sX);
+    rY = ((dY - y)/sY);
+    console.log(rX)
+    console.log(rY)
+    cvs.style.left = (parseFloat(cvs.style.left.replace('%', '')/100) - rX)*100 + '%';
+    cvs.style.top = (parseFloat(cvs.style.top.replace('%', '')/100) - rY)*100 + '%';
+    console.log(cvs.style.left)
   }
 });
 
 $(document).on('mouseup', function (e) {
   di.canAddDot = false;
+  type = 0;
 });
 
 cvs.addEventListener("touchstart",function(e){

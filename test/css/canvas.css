@@ -1,6 +1,15 @@
 body{
   margin: 0;
 }
+#root{
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 100px auto;
+  overflow: hidden;
+}
 #cvs{
   background: #eeeeee;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
