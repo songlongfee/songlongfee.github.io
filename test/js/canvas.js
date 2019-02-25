@@ -1,8 +1,8 @@
 function DrawImage(params) {
   this.dataSet = params.dataSet || [];
-  this.size = params.size || 40;
-  this.lineColor = params.lineColor || '';
-  this.color = params.color || '#cccccc';
+  this.size = params.size || 20; //单元格尺寸
+  this.lineColor = params.lineColor || ''; //网格边框色
+  this.color = params.color || '#cccccc'; //画笔颜色
   this.ctx = document.getElementById(params.id).getContext('2d');
   this.canAddDot = false;
 }
@@ -54,9 +54,18 @@ DrawImage.prototype = {
   }
 };
 
+let cvs = document.getElementById("cvs");
+let winWidth = document.body.clientWidth;
+let winHeight = document.body.clientHeight;
+let brushColor = '#0099ff';
+let cellSize = 10;
+
+cvs.width = winWidth;
+cvs.height = winHeight;
+
 var di = new DrawImage({
   dataSet: [],
-  size: 20,
+  size: cellSize,
   lineColor: '#aaaaaa',
   color: '',
   id: 'cvs'
@@ -64,8 +73,7 @@ var di = new DrawImage({
 
 di.init();
 
-let brushColor = '#ffff00';
-let cellSize = 20;
+
 
 di.size = cellSize;
 
@@ -85,7 +93,6 @@ $(document).on('mouseup', function (e) {
   di.canAddDot = false;
 });
 
-let cvs = document.getElementById("cvs");
 cvs.addEventListener("touchstart",function(e){
     di.canAddDot = true;
 });
