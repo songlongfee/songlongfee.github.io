@@ -1,7 +1,7 @@
 function DrawImage(params) {
   this.dataSet = params.dataSet || [];
   this.size = params.size || 20; //单元格尺寸
-  this.lineColor = params.lineColor || ''; //网格边框色
+  this.lineColor = params.lineColor || '#eeeeee'; //网格边框色
   this.color = params.color || '#cccccc'; //画笔颜色
   this.ctx = document.getElementById(params.id).getContext('2d');
   this.canAddDot = false;
@@ -9,7 +9,7 @@ function DrawImage(params) {
 
 DrawImage.prototype = {
   init: function () {
-    this.drawGrid(this.color || '#aaaaaa', this.size, this.size);
+    this.drawGrid(this.lineColor, this.size, this.size);
   },
   drawGrid: function (color, stepx, stepy) {
     this.ctx.save();
@@ -66,7 +66,7 @@ cvs.height = winHeight;
 var di = new DrawImage({
   dataSet: [],
   size: cellSize,
-  lineColor: '#aaaaaa',
+  lineColor: '#dddddd',
   color: '',
   id: 'cvs'
 });
