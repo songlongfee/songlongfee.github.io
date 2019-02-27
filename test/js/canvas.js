@@ -84,7 +84,7 @@ var dY = 0;
 var sX = cvs.width;
 var sY = cvs.height;
 
-$('#cvs').on('mousedown', function (e) {
+cvs.addEventListener('mousedown', function (e) {
   e.preventDefault();
   di.canAddDot = true;
   if(e.which == 1) {
@@ -96,7 +96,7 @@ $('#cvs').on('mousedown', function (e) {
   dY = e.offsetY;
 });
 
-$('#cvs').on('mousemove', function (e) {
+cvs.addEventListener('mousemove', function (e) {
   var x = e.offsetX,
       y = e.offsetY;
   if(di.canAddDot && type === 1) {
@@ -117,16 +117,16 @@ $(document).on('mouseup', function (e) {
   type = 0;
 });
 
-cvs.addEventListener("touchstart",function(e){
+cvs.addEventListener("touchstart", function(e) {
     di.canAddDot = true;
 });
-cvs.addEventListener("touchmove",function(e){
+cvs.addEventListener("touchmove", function(e) {
   if(di.canAddDot) {
     var x = e.touches[0].pageX,
         y = e.touches[0].pageY;
     di.addDot(x, y, brushColor);
   }
 });
-cvs.addEventListener("touchend",function(e){
+cvs.addEventListener("touchend", function(e) {
     di.canAddDot = false;
 });
