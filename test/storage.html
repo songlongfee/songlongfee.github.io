@@ -12,7 +12,7 @@
   <script>
     let st = document.getElementById('st');
     let count = localStorage.getItem('count') || 0;
-    localStorage.setItem('count', count++);
+    localStorage.setItem('count', ++count);
     st.innerHTML = count;
   </script>
 </body>
