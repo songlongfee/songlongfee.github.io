@@ -27,7 +27,7 @@
 </head>
 <body>
   <form>
-      <button id="share" onclick="sendMessage()">分享</button>
+      <button id="share" onclick="hideTool()">分享</button>
       <input type="text" name="username"/>
       <input type="text" name="username"/>
       <input type="text" name="username"/>
@@ -37,11 +37,9 @@
   </form>
 
   <script>
-    function sendMessage(){
-      WeixinJSBridge.on('menu:share:appmessage', function(argv){
-        alert("发送给好友");
-      });
-    }
+    function hideTool(){
+　　　　WeixinJSBridge.call('hideToolbar');//隐藏右上角三个点按钮。
+　　}
   </script>
 </body>
 </html>
