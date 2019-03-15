@@ -9,10 +9,14 @@
 </head>
 <body>
   <div id="root">
-    <canvas id="cvs" style="left: 50%; top: 50%;" width="3000" height="3000"></canvas>
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <script src="./js/canvas.js"></script>
+  <!-- <script src="./js/canvas.js"></script> -->
+  <script>
+      var time = '2019/03/02 24:00';
+      var date = new Date(time);
+      $('#root').html(date);
+  </script>
 </body>
 </html>
