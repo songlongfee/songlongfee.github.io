@@ -14,12 +14,18 @@
   <br>
   <button id="flip-button" style="font-size:18px;">切换镜头</button>
   <script>
-    !(function () {
-      var front = false;
-      var constraints = { video: { facingMode: (front ? "user" : "environment") } };
+    var front = false;
+    var constraints = {};
 
-      document.getElementById('flip-button').onclick = function () { front = !front; };
+    document.getElementById('flip-button').onclick = function () {
+      front = !front;
+      constraints = { video: { facingMode: (front ? "user" : "environment") } }
+      openCamera(constraints);
+    };
 
+    openCamera(constraints);
+
+    function openCamera(constraints) {
       // 老的浏览器可能根本没有实现 mediaDevices，所以我们可以先设置一个空的对象
       if (navigator.mediaDevices === undefined) {
         navigator.mediaDevices = {};
@@ -41,10 +47,6 @@
         }
       }
 
-      // const constraints = {
-      //   video: true,
-      //   audio: false
-      // };
       let promise = navigator.mediaDevices.getUserMedia(constraints);
       promise.then(stream => {
         let v = document.getElementById('v');
@@ -61,7 +63,7 @@
       }).catch(err => {
         console.error(err.name + ": " + err.message);
       })
-    })();
+    }
   </script>
 </body>
 
