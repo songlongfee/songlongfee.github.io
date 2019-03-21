@@ -8,8 +8,17 @@
 
 <body>
   <video id="v"></video>
+  <br>
+  <br>
+  <br>
+  <button id="flip-button">切换前后摄像头</button>
   <script>
     !(function () {
+      var front = false;
+      var constraints = { video: { facingMode: (front ? "user" : "environment") } };
+
+      document.getElementById('flip-button').onclick = function () { front = !front; };
+
       // 老的浏览器可能根本没有实现 mediaDevices，所以我们可以先设置一个空的对象
       if (navigator.mediaDevices === undefined) {
         navigator.mediaDevices = {};
@@ -30,10 +39,11 @@
           });
         }
       }
-      const constraints = {
-        video: true,
-        audio: false
-      };
+
+      // const constraints = {
+      //   video: true,
+      //   audio: false
+      // };
       let promise = navigator.mediaDevices.getUserMedia(constraints);
       promise.then(stream => {
         let v = document.getElementById('v');
