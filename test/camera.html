@@ -15,7 +15,7 @@
   <button id="flip-button" style="font-size:18px;">切换镜头</button>
   <script>
     var front = false;
-    var constraints = {};
+    var constraints = { video: { facingMode: (front ? "user" : "environment") } };
 
     document.getElementById('flip-button').onclick = function () {
       front = !front;
