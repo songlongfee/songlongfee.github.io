@@ -5,18 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Canvas</title>
-  <link rel="stylesheet" href="./css/canvas.css">
+  <style>
+    html,body{
+      height: 100%;
+    }
+    body{
+      margin: 0;
+    }
+    #root{
+      padding: 100px 0;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    input{
+      display: block;
+      width: 80%;
+      line-height: 30px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      border-radius: 4px;
+      outline: none;
+      border: 2px solid #cccccc;
+    }
+    button{
+      display: block;
+      width: 80%;
+      line-height: 30px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      border-radius: 4px;
+      outline: none;
+      background: #0099ff;
+      color: #ffffff;
+      text-align: center;
+      position: fixed;
+      bottom: 20px;
+      border: none;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @media(min-width: 400px) {
+      
+    }
+  </style>
 </head>
 <body>
   <div id="root">
+    <input type="text">
+    <button>submit</button>
   </div>
 
   <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-  <!-- <script src="./js/canvas.js"></script> -->
   <script>
-      var time = '2019/03/02 24:00';
-      var date = new Date(time);
-      $('#root').html(date);
+    var h = $(window).height();
+    $(window).resize(function () {
+//       if($(window).height()<h) {
+//         $('button').hide()
+//       } else {
+//         $('button').show()
+//       }
+    })
   </script>
 </body>
 </html>
