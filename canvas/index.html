@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            width:100%;
+            height:100%;
+            margin:0;
+        }
+        .cvs-wrap{
+            width: 0;
+            height: 0;
+            overflow:hidden;
+        }
+        #canvas {
+            background: #ccc;
+        }
+        #div img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div" style="width:300px;height:500px;margin:20px auto;"></div>
+    <p id="download" onclick="save()">download</p>
+    <script src="./canvas2image.js"></script>
+    <script>
+        var img = drawImage('./images/qrcode_1.png', './images/code.jpg');
+        // var img = drawImage2('./images/qrcode_2.png', './images/code.jpg');
+        var cvsObj;
+
+        var shopName = '关关拉面馆';
+        var tableNo = '桌台号: 大厅A008';
+        function drawImage(url, subUrl) {
+            var codeImg = new Image();
+            codeImg.src = subUrl;
+            var oImg = new Image();
+            oImg.src = url;
+            oImg.onload = function() {
+                var canvas = document.createElement('canvas');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(this, 0, 0, this.width, this.height);
+                ctx.drawImage(codeImg, 144, 277, 280, 280);
+                cvsObj = canvas;
+                ctx.fillStyle = '#004585';
+                ctx.font = "34px arial";
+                ctx.fillText(shopName, 225, 74);
+                ctx.fillStyle = '#ffffff';
+                ctx.font = "28px arial";
+                var offset = textWidth(tableNo);
+                ctx.fillText(tableNo, 284 - offset, 635);
+                ctx.stroke();
+                var nImg = new Image();
+                nImg.src = canvas.toDataURL('image/png');
+                nImg.id = 'img';
+                document.getElementById('div').appendChild(nImg);
+                // document.getElementById('download').setAttribute('href', nImg.src);
+                return nImg;
+            };
+            oImg.onerror = function(err) {
+                console.log(err);
+            }
+        }
+        function drawImage2(url, subUrl) {
+            var codeImg = new Image();
+            codeImg.src = subUrl;
+            var oImg = new Image();
+            oImg.src = url;
+            oImg.onload = function () {
+                var canvas = document.createElement('canvas');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(this, 0, 0, this.width, this.height);
+                ctx.drawImage(codeImg, 144, 125, 280, 280);
+                cvsObj = canvas;
+                ctx.fillStyle = '#ffffff';
+                ctx.font = "28px arial";
+                var offset = textWidth(tableNo);
+                ctx.fillText(tableNo, 284 - offset, 470);
+                ctx.stroke();
+                var nImg = new Image();
+                nImg.src = canvas.toDataURL('image/png');
+                nImg.id = 'img';
+                document.getElementById('div').appendChild(nImg);
+                document.getElementById('download').setAttribute('href', nImg.src);
+                return nImg;
+            };
+            oImg.onerror = function (err) {
+                console.log(err);
+            }
+        }
+        //文字宽度/2
+        function textWidth(str) {
+            var len = str.length;
+            var len_1 = 0;
+            var len_num = 0;
+            for(var i=4;i<len;i++) {
+                //ascii a 97 A 65 z 122 Z 90 0 48 9 57
+                if(str.charCodeAt(i) == 49) {
+                    len_1++;
+                } else if((str.charCodeAt(i)>=48 && str.charCodeAt(i)<=57) || (str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90) || (str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 122)){
+                    len_num++;
+                }
+            }
+            return ((len - len_1 - len_num - 2) * 28 + len_num * 18 + len_1 * 14 + 18)/2; //-2 +18为:和空格宽度
+        }
+        
+        function save() {
+            Canvas2Image.saveAsImage(cvsObj, cvsObj.width, cvsObj.height, 'png', tableNo)
+        }
+    </script>
+</body>
+
+</html>
