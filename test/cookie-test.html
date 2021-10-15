@@ -23,10 +23,10 @@
         return null;
       }
     }
-    function clearCookie(name, domain, path = '/') {
+    function clearCookie(name, path = '/') {
       var exp = new Date();
       exp.setTime(exp.getTime() - 1000);
-      document.cookie = name + "=" + getCookie(name) + ";domain=" + domain + ";expires=" + exp.toGMTString() + ";path=" + path;
+      document.cookie = name + "=" + getCookie(name) + ";expires=" + exp.toGMTString() + ";path=" + path;
     }
     var st = document.getElementById('st');
   </script>
