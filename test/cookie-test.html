@@ -26,10 +26,9 @@
     function clearCookie(name, domain, path = '/') {
       var exp = new Date();
       exp.setTime(exp.getTime() - 1000);
-      document.cookie = name + "=;domain=" + domain + ";expires=" + exp.toGMTString() + ";path=" + path;
+      document.cookie = name + "=" + getCookie(name) + ";domain=" + domain + ";expires=" + exp.toGMTString() + ";path=" + path;
     }
     var st = document.getElementById('st');
-    setCookie('session', 'scfsklagsadfsky', 30)
   </script>
 </body>
 </html>
