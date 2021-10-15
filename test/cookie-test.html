@@ -10,8 +10,13 @@
   <div id="st"></div>
 
   <script>
-    let st = document.getElementById('st');
-    console.log(document.cookie)
+    function setCookie(name, value, day = 7) {
+      var exp = new Date();
+      exp.setTime(exp.getTime() + day * 1000);
+      document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+    }
+    var st = document.getElementById('st');
+    setCookie('session', 'scfsklagsadfsky', 30)
   </script>
 </body>
 </html>
