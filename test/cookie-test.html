@@ -10,10 +10,10 @@
   <div id="st"></div>
 
   <script>
-    function setCookie(name, value, day = 7) {
+    function setCookie(name, value, day = 7, path = '/') {
       var exp = new Date();
       exp.setTime(exp.getTime() + day * 1000);
-      document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString() + ";path=/";
+      document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString() + ";path=" + path;
     }
     function getCookie(name) { 
       var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
@@ -22,6 +22,11 @@
       } else {
         return null;
       }
+    }
+    function clearCookie(name, domain, path = '/') {
+      var exp = new Date();
+      exp.setTime(exp.getTime() - 1000);
+      document.cookie = name + "=;domain=" + domain + ";expires=" + exp.toGMTString() + ";path=" + path;
     }
     var st = document.getElementById('st');
     setCookie('session', 'scfsklagsadfsky', 30)
