@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>施工日志</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./swiper-bundle.min.css">
+  <link rel="stylesheet prefetch" href="./photoswipe.css">
+  <link rel="stylesheet prefetch" href="./default-skin/default-skin.css">
+  <style>
+    h1 {
+      padding: 1.2rem;
+      line-height: 2.2rem;
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 0 0.8rem;
+      border-bottom: 1px solid #EAEAEA;
+    }
+    header {
+      height: 8.6rem;
+      margin: 0 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      width: 6rem;
+      height: 6rem;
+      -o-object-fit: cover;
+        object-fit: cover;
+      margin-right: 1.6rem;
+    }
+    header > div div {
+      font-size: 1.5rem;
+      line-height: 2.1rem;
+      color: rgba(0, 0, 0, 0.85);
+      margin-bottom: 0.8rem;
+    }
+    header > div span {
+      height: 1.8rem;
+      line-height: 1.8rem;
+      font-size: 1.3rem;
+    }
+    .slogon {
+      line-height: 1.8rem;
+      margin: 0 1.5rem;
+      padding: 1.6rem 1rem;
+      background: #EAF0FF;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 1.3rem;
+    }
+    ul {
+      padding: 1rem 0;
+      margin: 0 1.5rem;
+    }
+    ul li {
+      font-size: 1.5rem;
+      line-height: 2.1rem;
+      color: rgba(0, 0, 0, 0.75);
+      margin-bottom: 0.8rem;
+      text-align: justify;
+    }
+    .img-wrapper {
+      margin: 0 0.8rem 1rem;
+    }
+    .img-wrapper img {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    section > div {
+      line-height: 5rem;
+      font-size: 1.5rem;
+      color: #323232;
+      padding: 0 2rem;
+      background: #F7F7F7;
+      margin-bottom: 2rem;
+    }
+    section p {
+      margin: 3rem 2rem 0;
+      padding-bottom: 2rem;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    footer {
+      padding: 1.2rem 0 0 0;
+      background-color: rgb(240, 242, 245);
+    }
+    footer div {
+      height: 4rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 4rem;
+      text-align: center;
+      position: relative;
+    }
+    footer div span {
+      position: relative;
+    }
+    footer div span::before {
+      display: block;
+      content: ' ';
+      width: 3rem;
+      height: 0.3rem;
+      background-color: black;
+      position: absolute;
+      left: -6.8rem;
+      top: 1rem;
+    }
+    footer div span::after {
+      display: block;
+      content: ' ';
+      width: 3rem;
+      height: 0.3rem;
+      background-color: black;
+      position: absolute;
+      right: -6.8rem;
+      top: 1rem;
+    }
+    footer p {
+      display: block;
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+      padding-bottom: 1.8rem;
+      color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    footer b {
+      display: block;
+      height: 5rem;
+      line-height: 5rem;
+      font-size: 1.4rem;
+      color: #1874FD;
+      padding: 0 2.8rem;
+      text-align: right;
+      margin: 0 1.5rem;
+      border-top: 1px solid #E7E7E7;
+    }
+
+    .swiper-slide {
+      background-color: black;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 43rem;
+      object-fit: cover;
+    }
+    .swiper-slide video {
+      display: block;
+      height: 43rem;
+      margin: 0 auto;
+    }
+    .my-gallery {width:100%;margin: 0 auto;}
+    .my-gallery .img-dv {width:100%;}
+    .my-gallery .img-dv a {display:block;width:100%;text-align: center}
+    .my-gallery .img-dv a img {width:100%;}
+    .swiper-container {
+      overflow: visible;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets {
+      bottom: -2.2rem;
+    }
+    section > div {
+      margin-top: 2rem;
+      background-color: white;
+    }
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 2.4rem;
+      padding: 1.2rem 0.9rem 1.4rem;
+    }
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+  <script>
+    !(function() {
+      function calculate() {
+        var deviceWidth =document.documentElement.clientWidth;
+        if (deviceWidth < 241) {
+          deviceWidth = 240;
+        } else if(deviceWidth < 320) {
+          deviceWidth = 320;
+        } else if(deviceWidth > 750) {
+          deviceWidth = 750;
+        }
+        document.documentElement.style.fontSize =deviceWidth /37.5 +'px';
+      }
+      window.addEventListener('resize', calculate, false);
+      calculate();
+    })();
+
+    function setSize(e) {
+      var child = e.target;
+      let url = child.src;
+      var img = new Image();
+      img.src = url;
+      img.onload = function() {
+        child.parentNode.setAttribute('data-size', img.width + 'x' + img.height);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>绿地云海公馆8-1008号-木工水电安装阶段木工水电安装阶段</h1>
+  <header>
+    <img src="./images/1.jpg" alt="">
+    <div>
+      <div>德艺装饰德艺装饰德艺装饰</div>
+      <span>6月29日 星期三</span>
+    </div>
+  </header>
+  <div class="slogon">德艺装饰，为您打造一个五星级温暖的家,德艺装饰，为您打造一个五星级温暖的家</div>
+  <div class="title">标题</div>
+  <ul>
+    <li>施工阶段：水电阶段</li>
+    <li>突发事件：天是开工的第一天，我们首先为大桥东路24号的业主进行了开工大吉的仪式，目前一切顺利，争取尽早把这个项目做完，给业主一个温暖的家无</li>
+  </ul>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="my-gallery" data-pswp-uid="1">
+          <figure>
+            <div class="img-dv"><a href="./images/1.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/1.jpg"></a></div>
+          </figure>
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/2.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/2.jpg"></a></div>
+          </figure>
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/3.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/3.jpg"></a></div>
+          </figure>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="my-gallery" data-pswp-uid="2">
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/1.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/1.jpg"></a></div>
+          </figure>
+          <figure>
+            <div class="img-dv"><a href="./images/2.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/2.jpg"></a></div>
+          </figure>
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/3.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/3.jpg"></a></div>
+          </figure>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="my-gallery" data-pswp-uid="3">
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/1.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/1.jpg"></a></div>
+          </figure>
+          <figure style="display: none;">
+            <div class="img-dv"><a href="./images/2.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/2.jpg"></a></div>
+          </figure>
+          <figure>
+            <div class="img-dv"><a href="./images/3.jpg" data-size="750x750"><img onload="setSize(event)" src="./images/3.jpg"></a></div>
+          </figure>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <video controls src="./images/4.mp4"></video>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <!--<button class="pswp__button pswp__button--share" title="Share"></button>-->
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <!-- <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button> -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <p>今天是开工的第一天，我们首先为大桥东路24号的业主进行了开工大吉的仪式，目前一切顺利，争取尽早把这个项目做完，给业主一个温暖的家！</p>
+  </section>
+  <footer>
+    <div>
+      <span>END</span>
+    </div>
+    <p>本装修日志由妙算科技提供</p>
+    <b>
+      <a href="./list.html">查看往期日志</a>
+    </b>
+  </footer>
+
+  <script src="./swiper-bundle.min.js"></script>
+  <script src="./photoswipe.min.js"></script>
+  <script src="./photoswipe-ui-default.min.js"></script>
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+
+    var initPhotoSwipeFromDOM = function(gallerySelector) {
+      // 解析来自DOM元素幻灯片数据（URL，标题，大小...）
+      var parseThumbnailElements = function(el) {
+        var thumbElements = el.childNodes,
+          numNodes = thumbElements.length,
+          items = [],
+          figureEl,
+          linkEl,
+          size,
+          item,
+          divEl;
+        for(var i = 0; i < numNodes; i++) {
+          figureEl = thumbElements[i]; // <figure> element
+          // 仅包括元素节点
+          if(figureEl.nodeType !== 1) {
+            continue;
+          }
+          divEl = figureEl.children[0];
+          linkEl = divEl.children[0]; // <a> element
+          size = linkEl.getAttribute('data-size').split('x');
+          // 创建幻灯片对象
+          item = {
+            src: linkEl.getAttribute('href'),
+            w: parseInt(size[0], 10),
+            h: parseInt(size[1], 10)
+          };
+          if(figureEl.children.length > 1) {
+            item.title = figureEl.children[1].innerHTML;
+          }
+          if(linkEl.children.length > 0) {
+            // <img> 缩略图节点, 检索缩略图网址
+            item.msrc = linkEl.children[0].getAttribute('src');
+          }
+          item.el = figureEl; // 保存链接元素 for getThumbBoundsFn
+          items.push(item);
+        }
+        return items;
+      };
+
+      // 查找最近的父节点
+      var closest = function closest(el, fn) {
+        return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+      };
+
+      // 当用户点击缩略图触发
+      var onThumbnailsClick = function(e) {
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        var eTarget = e.target || e.srcElement;
+        var clickedListItem = closest(eTarget, function(el) {
+          return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+        });
+        if(!clickedListItem) {
+          return;
+        }
+        var clickedGallery = clickedListItem.parentNode,
+          childNodes = clickedListItem.parentNode.childNodes,
+          numChildNodes = childNodes.length,
+          nodeIndex = 0,
+          index;
+        for (var i = 0; i < numChildNodes; i++) {
+          if(childNodes[i].nodeType !== 1) {
+            continue;
+          }
+          if(childNodes[i] === clickedListItem) {
+            index = nodeIndex;
+            break;
+          }
+          nodeIndex++;
+        }
+        if(index >= 0) {
+          openPhotoSwipe( index, clickedGallery );
+        }
+        return false;
+      };
+
+      var photoswipeParseHash = function() {
+        var hash = window.location.hash.substring(1),
+          params = {};
+        if(hash.length < 5) {
+          return params;
+        }
+        var vars = hash.split('&');
+        for (var i = 0; i < vars.length; i++) {
+          if(!vars[i]) {
+            continue;
+          }
+          var pair = vars[i].split('=');
+          if(pair.length < 2) {
+            continue;
+          }
+          params[pair[0]] = pair[1];
+        }
+        if(params.gid) {
+          params.gid = parseInt(params.gid, 10);
+        }
+        return params;
+      };
+
+      var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+        var pswpElement = document.querySelectorAll('.pswp')[0],
+          gallery,
+          options,
+          items;
+        items = parseThumbnailElements(galleryElement);
+        // 这里可以定义参数
+        options = {
+          barsSize: {
+            top: 100,
+            bottom: 100
+          },
+          fullscreenEl : false,
+          shareButtons: [
+            {id:'wechat', label:'分享微信', url:'#'},
+            {id:'weibo', label:'新浪微博', url:'#'},
+            {id:'download', label:'保存图片', url:'{{raw_image_url}}', download:true}
+          ],
+          galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+          getThumbBoundsFn: function(index) {
+            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+              pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+              rect = thumbnail.getBoundingClientRect();
+            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+          }
+        };
+        if(fromURL) {
+          if(options.galleryPIDs) {
+            for(var j = 0; j < items.length; j++) {
+              if(items[j].pid == index) {
+                options.index = j;
+                break;
+              }
+            }
+          } else {
+            options.index = parseInt(index, 10) - 1;
+          }
+        } else {
+          options.index = parseInt(index, 10);
+        }
+        if( isNaN(options.index) ) {
+          return;
+        }
+        if(disableAnimation) {
+          options.showAnimationDuration = 0;
+        }
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+      };
+
+      var galleryElements = document.querySelectorAll( gallerySelector );
+      for(var i = 0, l = galleryElements.length; i < l; i++) {
+        galleryElements[i].setAttribute('data-pswp-uid', i+1);
+        galleryElements[i].onclick = onThumbnailsClick;
+      }
+      var hashData = photoswipeParseHash();
+      if(hashData.pid && hashData.gid) {
+        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+      }
+    };
+
+    initPhotoSwipeFromDOM('.my-gallery');
+  </script>
+</body>
+</html>

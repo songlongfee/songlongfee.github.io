@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title></title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./swiper-bundle.min.css">
+  <link rel="stylesheet prefetch" href="./photoswipe.css">
+  <link rel="stylesheet prefetch" href="./default-skin/default-skin.css">
+  <script>
+    !(function() {
+      function calculate() {
+        var deviceWidth =document.documentElement.clientWidth;
+        if (deviceWidth < 241) {
+          deviceWidth = 240;
+        } else if(deviceWidth < 320) {
+          deviceWidth = 320;
+        } else if(deviceWidth > 750) {
+          deviceWidth = 750;
+        }
+        document.documentElement.style.fontSize =deviceWidth /37.5 +'px';
+      }
+      window.addEventListener('resize', calculate, false);
+      calculate();
+    })();
+
+    function setSize(e) {
+      var child = e.target;
+      let url = child.src;
+      var img = new Image();
+      img.src = url;
+      img.onload = function() {
+        child.parentNode.setAttribute('data-size', img.width + 'x' + img.height);
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- 项目信息 -->
+  <section>
+    <header>
+      <img src="./images/3.jpg" alt="">
+      <div>
+        <p>张三三<span>（工程总监）</span></p>
+        <b>2022-07-22 13:30</b>
+      </div>
+    </header>
+    <div class="house">
+      <div>
+        <p>户型</p>
+        <span>3室 2厅 1厨 2卫</span>
+      </div>
+      <i></i>
+      <div>
+        <p>面积</p>
+        <span>119.7㎡</span>
+      </div>
+    </div>
+    <div class="address">
+      <p class="ellipsis">小区名称：<span class="ellipsis">小区名称按时发斯蒂芬</span></p>
+      <p class="ellipsis">公司名称：<span class="ellipsis">小区名称按时发斯蒂芬</span></p>
+      <p>咨询电话：<a href="tel:0633-56989996">0633-56989996</a></p>
+    </div>
+  </section>
+  
+  <section>
+    <!-- 巡检问题 -->
+    <header>
+      <img src="./images/3.jpg" alt="">
+      <div>
+        <p>张三三<span>（工程总监）</span></p>
+        <b>2022-07-22 13:30</b>
+      </div>
+    </header>
+    <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+    <!-- 一张图片/视频 -->
+    <div class="share-image">
+      <div class="img1">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+    </div>
+    <!-- 两张张图片/视频 -->
+    <div class="share-image share-image2">
+      <div class="img2">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img2">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+    </div>
+    <!-- 三张张图片/视频 -->
+    <div class="share-image share-image2">
+      <div class="img3">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img3">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img3">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+    </div>
+    <!-- 四张张图片/视频 -->
+    <div class="share-image share-image2">
+      <div class="img4">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img4">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img4">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img4">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+    </div>
+    <!-- 五张张图片/视频 -->
+    <div class="share-image share-image2">
+      <div class="img5">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img5">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img5">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img5">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img5">
+        <img src="./images/1.jpg" alt="">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" src="./images/play.png"></i>
+      </div>
+      <div class="img5">
+        <!-- 占位 勿删 -->
+      </div>
+    </div>
+    <div class="result-list">
+      <h2>处理结果</h2>
+      <ul class="result">
+        <li>
+          <header>
+            <img src="./images/3.jpg" alt="">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 一张图片/视频 -->
+          <div class="share-image">
+            <div class="img1">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+          </div>
+          <!-- 两张张图片/视频 -->
+          <div class="share-image share-image2">
+            <div class="img2">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img2">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+          </div>
+          <!-- 三张张图片/视频 -->
+          <div class="share-image share-image2">
+            <div class="img3">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img3">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img3">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+          </div>
+        </li>
+        <li>
+          <header>
+            <img src="./images/3.jpg" alt="">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 四张张图片/视频 -->
+          <div class="share-image share-image2">
+            <div class="img4">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img4">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img4">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img4">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+          </div>
+          <!-- 五张张图片/视频 -->
+          <div class="share-image share-image2">
+            <div class="img5">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img5">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img5">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img5">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img5">
+              <img src="./images/1.jpg" alt="">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" src="./images/play.png"></i>
+            </div>
+            <div class="img5">
+              <!-- 占位 勿删 -->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="result-list comment">
+      <h2>巡检评价</h2>
+      <header>
+        <img src="./images/3.jpg" alt="">
+        <div>
+          <p>张三三<span>（工程总监）</span></p>
+          <b>2022-07-22 13:30</b>
+        </div>
+      </header>
+      <div class="score">
+        <span>评分:</span>
+        <b>
+          <i class="light"></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </b>
+        <span>非常差</span>
+      </div>
+    </div>
+    <div class="reader">
+      <h2>阅读人：6人</h2>
+      <ul>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg" alt="">
+          <span>姓名姓名</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <img src="./images/1.jpg" alt="">
+    <span>上海宏宇装饰股份有限公司</span>
+    <a href="tel:13800000001">立即咨询</a>
+  </footer>
+  <script src="./swiper-bundle.min.js"></script>
+  <script src="./photoswipe.min.js"></script>
+  <script src="./photoswipe-ui-default.min.js"></script>
+  <script>
+    // var swiper = new Swiper('.swiper-container', {
+    //   pagination: {
+    //     el: '.swiper-pagination',
+    //   },
+    // });
+
+    var initPhotoSwipeFromDOM = function(gallerySelector) {
+      // 解析来自DOM元素幻灯片数据（URL，标题，大小...）
+      var parseThumbnailElements = function(el) {
+        var thumbElements = el.childNodes,
+          numNodes = thumbElements.length,
+          items = [],
+          figureEl,
+          linkEl,
+          size,
+          item,
+          divEl;
+        for(var i = 0; i < numNodes; i++) {
+          figureEl = thumbElements[i]; // <figure> element
+          // 仅包括元素节点
+          if(figureEl.nodeType !== 1) {
+            continue;
+          }
+          divEl = figureEl.children[0];
+          linkEl = divEl.children[0]; // <a> element
+          size = linkEl.getAttribute('data-size').split('x');
+          // 创建幻灯片对象
+          item = {
+            src: linkEl.getAttribute('href'),
+            w: parseInt(size[0], 10),
+            h: parseInt(size[1], 10)
+          };
+          if(figureEl.children.length > 1) {
+            item.title = figureEl.children[1].innerHTML;
+          }
+          if(linkEl.children.length > 0) {
+            // <img> 缩略图节点, 检索缩略图网址
+            item.msrc = linkEl.children[0].getAttribute('src');
+          }
+          item.el = figureEl; // 保存链接元素 for getThumbBoundsFn
+          items.push(item);
+        }
+        return items;
+      };
+
+      // 查找最近的父节点
+      var closest = function closest(el, fn) {
+        return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+      };
+
+      // 当用户点击缩略图触发
+      var onThumbnailsClick = function(e) {
+        e = e || window.event;
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        var eTarget = e.target || e.srcElement;
+        var clickedListItem = closest(eTarget, function(el) {
+          return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+        });
+        if(!clickedListItem) {
+          return;
+        }
+        var clickedGallery = clickedListItem.parentNode,
+          childNodes = clickedListItem.parentNode.childNodes,
+          numChildNodes = childNodes.length,
+          nodeIndex = 0,
+          index;
+        for (var i = 0; i < numChildNodes; i++) {
+          if(childNodes[i].nodeType !== 1) {
+            continue;
+          }
+          if(childNodes[i] === clickedListItem) {
+            index = nodeIndex;
+            break;
+          }
+          nodeIndex++;
+        }
+        if(index >= 0) {
+          openPhotoSwipe( index, clickedGallery );
+        }
+        return false;
+      };
+
+      var photoswipeParseHash = function() {
+        var hash = window.location.hash.substring(1),
+          params = {};
+        if(hash.length < 5) {
+          return params;
+        }
+        var vars = hash.split('&');
+        for (var i = 0; i < vars.length; i++) {
+          if(!vars[i]) {
+            continue;
+          }
+          var pair = vars[i].split('=');
+          if(pair.length < 2) {
+            continue;
+          }
+          params[pair[0]] = pair[1];
+        }
+        if(params.gid) {
+          params.gid = parseInt(params.gid, 10);
+        }
+        return params;
+      };
+
+      var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+        var pswpElement = document.querySelectorAll('.pswp')[0],
+          gallery,
+          options,
+          items;
+        items = parseThumbnailElements(galleryElement);
+        // 这里可以定义参数
+        options = {
+          barsSize: {
+            top: 100,
+            bottom: 100
+          },
+          fullscreenEl : false,
+          shareButtons: [
+            {id:'wechat', label:'分享微信', url:'#'},
+            {id:'weibo', label:'新浪微博', url:'#'},
+            {id:'download', label:'保存图片', url:'{{raw_image_url}}', download:true}
+          ],
+          galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+          getThumbBoundsFn: function(index) {
+            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+              pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+              rect = thumbnail.getBoundingClientRect();
+            return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+          }
+        };
+        if(fromURL) {
+          if(options.galleryPIDs) {
+            for(var j = 0; j < items.length; j++) {
+              if(items[j].pid == index) {
+                options.index = j;
+                break;
+              }
+            }
+          } else {
+            options.index = parseInt(index, 10) - 1;
+          }
+        } else {
+          options.index = parseInt(index, 10);
+        }
+        if( isNaN(options.index) ) {
+          return;
+        }
+        if(disableAnimation) {
+          options.showAnimationDuration = 0;
+        }
+        gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+      };
+
+      var galleryElements = document.querySelectorAll( gallerySelector );
+      for(var i = 0, l = galleryElements.length; i < l; i++) {
+        galleryElements[i].setAttribute('data-pswp-uid', i+1);
+        galleryElements[i].onclick = onThumbnailsClick;
+      }
+      var hashData = photoswipeParseHash();
+      if(hashData.pid && hashData.gid) {
+        openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+      }
+    };
+
+    // initPhotoSwipeFromDOM('.my-gallery');
+  </script>
+</body>
+</html>
