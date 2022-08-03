@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section, button {
 body {
   line-height: 1;
   color: #272727;
+	overflow: auto;
 }
 ol, ul {
 	list-style: none;
@@ -327,6 +328,7 @@ footer {
 	position: fixed;
 	right: 0;
 	bottom: 0;
+	z-index: 1;
 	left: 0;
 	display: flex;
 	align-items: center;
