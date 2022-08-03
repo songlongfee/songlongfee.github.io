@@ -210,13 +210,12 @@ section header b {
 }
 .play {
 	display: block;
-	width: 4rem;
-	height: 4rem;
-	background: url('./images/play.png') no-repeat center center/cover;
+	background: url('./images/play.png') no-repeat center center/4rem 4rem;
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 .result li .share-image {
 	border-bottom: 1px solid #D8D8D8;
@@ -357,4 +356,57 @@ footer a {
 	background: #21D7BB;
 	color: white;
 	font-size: 1.5rem;
+}
+
+.preview {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: black;
+	z-index: 9;
+	display: none;
+	align-items: center;
+}
+.preview img {
+	width: 100%;
+	height: auto;
+}
+.preview video {
+	max-width: 100%;
+	max-height: 100%;
+	margin: 0 auto;
+}
+.preview i {
+	position: fixed;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 4rem;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	font-size: 2.5rem;
+	color: white;
+	z-index: 19;
+	background-color: rgba(0,0,0,0.5);
+}
+.preview span {
+	position: fixed;
+	width: 4rem;
+	height: 4rem;
+	color: white;
+	line-height: 4rem;
+	font-size: 2rem;
+	border-radius: 2rem;
+	text-align: center;
+	z-index: 19;
+	background-color: rgba(0,0,0,0.5);
+}
+.preview .left {
+	left: 0;
+}
+.preview .right {
+	right: 0;
 }
