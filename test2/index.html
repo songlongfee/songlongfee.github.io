@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title></title>
+  <link rel="stylesheet" href="./swiper.min.css">
   <link rel="stylesheet" href="./style.css?v1.0">
   <script>
     !(function() {
@@ -21,16 +22,6 @@
       window.addEventListener('resize', calculate, false);
       calculate();
     })();
-
-    function setSize(e) {
-      var child = e.target;
-      let url = child.src;
-      var img = new Image();
-      img.src = url;
-      img.onload = function() {
-        child.parentNode.setAttribute('data-size', img.width + 'x' + img.height);
-      }
-    }
   </script>
 </head>
 <body>
@@ -335,23 +326,13 @@
     <span>上海宏宇装饰股份有限公司</span>
     <a href="tel:13800000001">立即咨询</a>
   </footer>
+  <i id="close" onclick="closePreview()">×</i>
 
-  <div class="preview">
-    <img src="" alt="">
-    <video src="" controls></video>
-    <i class="close" onclick="closePreview()">×</i>
-    <span class="left prev" onclick="prev()">&lt;</span>
-    <span class="right next" onclick="next()">&gt;</span>
-  </div>
-
+  <script src="./swiper.min.js"></script>
   <script>
+    var mySwiper = null;
     var index = 0;
     var urlList = [];
-    var wrapper = document.querySelector('.preview');
-    var img = wrapper.querySelector('img');
-    var video = wrapper.querySelector('video');
-    var prevBtn = document.querySelector('.prev');
-    var nextBtn = document.querySelector('.next');
 
     function preview(e) {
       var evt = e || window.event;
@@ -364,64 +345,61 @@
           url: el.dataset.url
         })
       });
-      if(urlList.length < 2) {
-        prevBtn.style.display = 'none';
-        nextBtn.style.display = 'none';
-      } else {
-        prevBtn.style.display = 'block';
-        nextBtn.style.display = 'block';
-      }
-      var url = urlList[index].url;
-      var type = urlList[index].type;
-      if(type == 1) {
-        img.style.display = 'block';
-        video.style.display = 'none';
-        img.src = url;
-      } else if(type == 2) {
-        img.style.display = 'none';
-        video.style.display = 'block';
-        video.src = url;
-      }
-      wrapper.style.display = 'flex';
+
+      var fragment = document.createDocumentFragment();
+      var swiper = document.createElement('div');
+      swiper.className = 'swiper-container';
+      fragment.appendChild(swiper);
+      var wrapper = document.createElement('div');
+      wrapper.className = 'swiper-wrapper';
+      fragment.childNodes[0].appendChild(wrapper);
+
+      urlList.forEach(function (item, i) {
+        if(item.type == '1') {
+          // 图片
+          fragment.childNodes[0].childNodes[0].appendChild(createSlide());
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createImg(item.url));
+        } else if(item.type == '2') {
+          // 视频
+          fragment.childNodes[0].childNodes[0].appendChild(createSlide());
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createVideo('./images/4.mp4'));
+        }
+      })
+
+      document.body.appendChild(fragment);
       document.body.style.overflow = 'hidden';
+      mySwiper = new Swiper('.swiper-container');
+      mySwiper.slideTo(index, 0);
+      document.getElementById('close').style.display = 'block';
     }
 
-    function prev() {
-      if(index == 0) return;
-      index --;
-      var url = urlList[index].url;
-      var type = urlList[index].type;
-      if(type == 1) {
-        img.style.display = 'block';
-        video.style.display = 'none';
-        img.src = url;
-      } else if(type == 2) {
-        img.style.display = 'none';
-        video.style.display = 'block';
-        video.src = url;
-      }
+    function createSlide() {
+      var div = document.createElement('div');
+      div.className = 'swiper-slide';
+      return div;
     }
 
-    function next() {
-      if(index == urlList.length - 1) return;
-      index ++;
-      var url = urlList[index].url;
-      var type = urlList[index].type;
-      if(type == 1) {
-        img.style.display = 'block';
-        video.style.display = 'none';
-        img.src = url;
-      } else if(type == 2) {
-        img.style.display = 'none';
-        video.style.display = 'block';
-        video.src = url;
-      }
+    function createImg(src) {
+      var img = document.createElement('img');
+      img.src = src;
+      return img;
+    }
+
+    function createVideo(src) {
+      var video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      return video;
     }
 
     function closePreview(e) {
-      wrapper.style.display = 'none';
+      var swiper = document.querySelector('.swiper-container');
+      document.body.removeChild(swiper);
+      mySwiper = null;
+      document.getElementById('close').style.display = 'none';
       document.body.style.overflow = 'auto';
     }
+
   </script>
 </body>
 </html>
