@@ -422,7 +422,7 @@ footer a {
 	z-index: 99;
 	background-color: black;
 }
-.swiper-slide {
+.swiper-zoom-container {
 	display: flex;
 	align-items: center;
 }
@@ -444,6 +444,6 @@ footer a {
 	color: white;
 	line-height: 4rem;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	border-radius: 2rem;
 }

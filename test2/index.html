@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title></title>
   <link rel="stylesheet" href="./swiper.min.css">
-  <link rel="stylesheet" href="./style.css?v1.0">
+  <link rel="stylesheet" href="./style.css?v1.1">
   <script>
     !(function() {
       function calculate() {
@@ -25,10 +25,9 @@
   </script>
 </head>
 <body>
-  <!-- 项目信息 -->
   <section>
     <header>
-      <img src="./images/3.jpg" alt="">
+      <img src="./images/3.jpg">
       <div>
         <p>张三三<span>（工程总监）</span></p>
         <b>2022-07-22 13:30</b>
@@ -53,9 +52,8 @@
   </section>
   
   <section>
-    <!-- 巡检问题 -->
     <header>
-      <img src="./images/3.jpg" alt="">
+      <img src="./images/3.jpg">
       <div>
         <p>张三三<span>（工程总监）</span></p>
         <b>2022-07-22 13:30</b>
@@ -170,7 +168,7 @@
       <ul class="result">
         <li>
           <header>
-            <img src="./images/3.jpg" alt="">
+            <img src="./images/3.jpg">
             <div>
               <p>张三三<span>（工程总监）</span></p>
               <b>2022-07-22 13:30</b>
@@ -286,7 +284,7 @@
     <div class="result-list comment">
       <h2>巡检评价</h2>
       <header>
-        <img src="./images/3.jpg" alt="">
+        <img src="./images/3.jpg">
         <div>
           <p>张三三<span>（工程总监）</span></p>
           <b>2022-07-22 13:30</b>
@@ -295,6 +293,7 @@
       <div class="score">
         <span>评分:</span>
         <b>
+          <!-- 1星 -->
           <i class="light"></i>
           <i></i>
           <i></i>
@@ -303,36 +302,48 @@
         </b>
         <span>非常差</span>
       </div>
+      <div class="score">
+        <span>评分:</span>
+        <b>
+          <!-- 3星 -->
+          <i class="light"></i>
+          <i class="light"></i>
+          <i class="light"></i>
+          <i></i>
+          <i></i>
+        </b>
+        <span>好</span>
+      </div>
     </div>
     <div class="reader">
       <h2>阅读人：6人</h2>
       <ul>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
         <li>
-          <img src="./images/1.jpg" alt="">
+          <img src="./images/1.jpg">
           <span>姓名姓名</span>
         </li>
       </ul>
@@ -340,7 +351,7 @@
   </section>
 
   <footer>
-    <img src="./images/1.jpg" alt="">
+    <img src="./images/1.jpg">
     <span>上海宏宇装饰股份有限公司</span>
     <a href="tel:13800000001">立即咨询</a>
   </footer>
@@ -376,17 +387,21 @@
         if(item.type == '1') {
           // 图片
           fragment.childNodes[0].childNodes[0].appendChild(createSlide());
-          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createImg(item.url));
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createContainer());
+          fragment.childNodes[0].childNodes[0].childNodes[i].childNodes[0].appendChild(createImg(item.url));
         } else if(item.type == '2') {
           // 视频
           fragment.childNodes[0].childNodes[0].appendChild(createSlide());
-          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createVideo('./images/4.mp4'));
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createContainer());
+          fragment.childNodes[0].childNodes[0].childNodes[i].childNodes[0].appendChild(createVideo(item.url));
         }
       })
 
       document.body.appendChild(fragment);
       document.body.style.overflow = 'hidden';
-      mySwiper = new Swiper('.swiper-container');
+      mySwiper = new Swiper('.swiper-container', {
+        zoom: true
+      });
       mySwiper.slideTo(index, 0);
       document.getElementById('close').style.display = 'block';
     }
@@ -394,6 +409,12 @@
     function createSlide() {
       var div = document.createElement('div');
       div.className = 'swiper-slide';
+      return div;
+    }
+
+    function createContainer() {
+      var div = document.createElement('div');
+      div.className = 'swiper-zoom-container';
       return div;
     }
 
