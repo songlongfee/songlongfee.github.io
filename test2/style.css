@@ -188,7 +188,7 @@ section header a.active {
 	line-height: 2rem;
 	color: #00C5A6;
 	padding-left: 2.1rem;
-	background: url('https://cdn.e-shigong.com/images/icon_tel.png') no-repeat left center/1.6rem 1.6rem;
+	background: url('https://cdn.e-shigong.com/static/image/icon_tel.png') no-repeat left center/1.6rem 1.6rem;
 }
 .share-text {
 	font-size: 1.4rem;
@@ -230,7 +230,7 @@ section header a.active {
 }
 .play {
 	display: block;
-	background: url('https://cdn.e-shigong.com/images/play.png') no-repeat center center/4rem 4rem;
+	background: url('https://cdn.e-shigong.com/static/image/play.png') no-repeat center center/4rem 4rem;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -306,14 +306,14 @@ section header a.active {
 	display: block;
 	width: 2rem;
 	height: 2rem;
-	background-image: url('https://cdn.e-shigong.com/images/star2.png');
+	background-image: url('https://cdn.e-shigong.com/static/image/star2.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	margin-right: 0.6rem;
 }
 .score b i.light {
-	background-image: url('https://cdn.e-shigong.com/images/star1.png');
+	background-image: url('https://cdn.e-shigong.com/static/image/star1.png');
 }
 
 .reader h2 {
