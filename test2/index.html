@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>闵北路118号虹桥中心-工地巡检</title>
+  <link rel="stylesheet" href="./swiper.min.css">
+  <link rel="stylesheet" href="./style.css?v1.4">
+  <script>
+    !(function() {
+      function calculate() {
+        var deviceWidth =document.documentElement.clientWidth;
+        if (deviceWidth < 241) {
+          deviceWidth = 240;
+        } else if(deviceWidth < 320) {
+          deviceWidth = 320;
+        } else if(deviceWidth > 750) {
+          deviceWidth = 750;
+        }
+        document.documentElement.style.fontSize =deviceWidth /37.5 +'px';
+      }
+      window.addEventListener('resize', calculate, false);
+      calculate();
+    })();
+  </script>
+</head>
+<body>
+  <!-- 项目内容 -->
+  <section>
+    <header>
+      <img src="./images/3.jpg">
+      <div>
+        <p>张三三<span>（工程总监）</span></p>
+        <b>2022-07-22 13:30</b>
+      </div>
+    </header>
+    <div class="house">
+      <div>
+        <p>户型</p>
+        <span>3室 2厅 1厨 2卫</span>
+      </div>
+      <i></i>
+      <div>
+        <p>面积</p>
+        <span>119.7㎡</span>
+      </div>
+    </div>
+    <div class="address">
+      <p class="ellipsis">小区名称：<span class="ellipsis">小区名称按时发斯蒂芬</span></p>
+      <p class="ellipsis">公司名称：<span class="ellipsis">小区名称按时发斯蒂芬</span></p>
+      <p>咨询电话：<a href="tel:0633-56989996">0633-56989996</a></p>
+    </div>
+  </section>
+  
+  <!-- 巡检内容 -->
+  <section>
+    <header>
+      <img src="./images/3.jpg">
+      <div>
+        <p>张三三<span>（工程总监）</span></p>
+        <b>2022-07-22 13:30</b>
+      </div>
+    </header>
+    <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+    <!-- 一张图片/视频 -->
+    <div class="gallery share-image" onclick="preview()">
+      <div class="img1">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <!-- <i class="play" data-index="0"></i> -->
+      </div>
+    </div>
+    <!-- 两张张图片/视频 -->
+    <div class="gallery share-image share-image2" onclick="preview()">
+      <div class="img2">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <!-- <i class="play" data-index="0"></i> -->
+      </div>
+      <div class="img2">
+        <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="1" data-type="2">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="1"></i>
+      </div>
+    </div>
+    <!-- 三张张图片/视频 -->
+    <div class="gallery share-image share-image2" onclick="preview()">
+      <div class="img3">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="0"></i>
+      </div>
+      <div class="img3">
+        <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="1" data-type="2">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="1"></i>
+      </div>
+      <div class="img3">
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="2" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="2"></i>
+      </div>
+    </div>
+    <!-- 四张张图片/视频 -->
+    <div class="gallery share-image share-image2" onclick="preview()">
+      <div class="img4">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="0"></i>
+      </div>
+      <div class="img4">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/2.jpg" data-url="./images/2.jpg" data-index="1" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="1"></i>
+      </div>
+      <div class="img4">
+        <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="2" data-type="2">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="2"></i>
+      </div>
+      <div class="img4">
+        <img class="img-item" src="./images/3.jpg" data-url="./images/3.jpg" data-index="3" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="3"></i>
+      </div>
+    </div>
+    <!-- 五张张图片/视频 -->
+    <div class="gallery share-image share-image2" onclick="preview()">
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="0"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="1" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="1"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/3.jpg" data-index="2" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="2"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="3" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="3"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="4" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="4"></i>
+      </div>
+      <div class="img5">
+        <!-- 占位 勿删 -->
+      </div>
+    </div>
+    <div class="result-list">
+      <h2>处理结果</h2>
+      <ul class="result">
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 一张图片/视频 -->
+          <div class="gallery share-image" onclick="preview()">
+            <div class="img1">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <!-- <i class="play" data-index="0"></i> -->
+            </div>
+          </div>
+        </li>
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 两张张图片/视频 -->
+          <div class="gallery share-image share-image2" onclick="preview()">
+            <div class="img2">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <!-- <i class="play" data-index="0"></i> -->
+            </div>
+            <div class="img2">
+              <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="1" data-type="2">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="1"></i>
+            </div>
+          </div>
+        </li>
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 三张张图片/视频 -->
+          <div class="gallery share-image share-image2" onclick="preview()">
+            <div class="img3">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="0"></i>
+            </div>
+            <div class="img3">
+              <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="1" data-type="2">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="1"></i>
+            </div>
+            <div class="img3">
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="2" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="2"></i>
+            </div>
+          </div>
+        </li>
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 四张张图片/视频 -->
+          <div class="gallery share-image share-image2" onclick="preview()">
+            <div class="img4">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="0"></i>
+            </div>
+            <div class="img4">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/2.jpg" data-url="./images/2.jpg" data-index="1" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="1"></i>
+            </div>
+            <div class="img4">
+              <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="2" data-type="2">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="2"></i>
+            </div>
+            <div class="img4">
+              <img class="img-item" src="./images/3.jpg" data-url="./images/3.jpg" data-index="3" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="3"></i>
+            </div>
+          </div>
+        </li>
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 五张张图片/视频 -->
+          <div class="gallery share-image share-image2" onclick="preview()">
+            <div class="img5">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="0"></i>
+            </div>
+            <div class="img5">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="1" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="1"></i>
+            </div>
+            <div class="img5">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/3.jpg" data-index="2" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="2"></i>
+            </div>
+            <div class="img5">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="3" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="3"></i>
+            </div>
+            <div class="img5">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="4" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="4"></i>
+            </div>
+            <div class="img5">
+              <!-- 占位 勿删 -->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="result-list comment">
+      <h2>巡检评价</h2>
+      <header>
+        <img src="./images/3.jpg">
+        <div>
+          <p>张三三<span>（工程总监）</span></p>
+          <b>2022-07-22 13:30</b>
+        </div>
+      </header>
+      <div class="score">
+        <span>评分:</span>
+        <b>
+          <!-- 1星 -->
+          <i class="light"></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+        </b>
+        <span>非常差</span>
+      </div>
+    </div>
+    <div class="reader">
+      <h2>阅读人：6人</h2>
+      <ul>
+        <li>
+          <img src="./images/1.jpg">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg">
+          <span>姓名姓名</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <header>
+      <img src="./images/3.jpg">
+      <div>
+        <p>张三三<span>（工程总监）</span></p>
+        <b>2022-07-22 13:30</b>
+      </div>
+    </header>
+    <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+    <!-- 五张张图片/视频 -->
+    <div class="gallery share-image share-image2" onclick="preview()">
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="0"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="1" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="1"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/3.jpg" data-index="2" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="2"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="3" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="3"></i>
+      </div>
+      <div class="img5">
+        <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+        <img class="img-item" src="./images/1.jpg" data-url="./images/2.jpg" data-index="4" data-type="1">
+        <!-- 视频显示此播放按钮 -->
+        <i class="play" data-index="4"></i>
+      </div>
+      <div class="img5">
+        <!-- 占位 勿删 -->
+      </div>
+    </div>
+    <div class="result-list">
+      <h2>处理结果</h2>
+      <ul class="result">
+        <li>
+          <header>
+            <img src="./images/3.jpg">
+            <div>
+              <p>张三三<span>（工程总监）</span></p>
+              <b>2022-07-22 13:30</b>
+            </div>
+          </header>
+          <p class="share-text">我是分享文案，我是分享文案，我是分享文案，我是分享文案，我是分享文案。</p>
+          <!-- 两张张图片/视频 -->
+          <div class="gallery share-image share-image2" onclick="preview()">
+            <div class="img2">
+              <!-- data-url 文件地址 data-type 1 图片 2 视频 data-index 列表遍历索引 -->
+              <img class="img-item" src="./images/1.jpg" data-url="./images/1.jpg" data-index="0" data-type="1">
+              <!-- 视频显示此播放按钮 -->
+              <!-- <i class="play" data-index="0"></i> -->
+            </div>
+            <div class="img2">
+              <img class="img-item" src="./images/1.jpg" data-url="./images/4.mp4" data-index="1" data-type="2">
+              <!-- 视频显示此播放按钮 -->
+              <i class="play" data-index="1"></i>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="result-list comment">
+      <h2>巡检评价</h2>
+      <header>
+        <img src="./images/3.jpg">
+        <div>
+          <p>张三三<span>（工程总监）</span></p>
+          <b>2022-07-22 13:30</b>
+        </div>
+      </header>
+      <div class="score">
+        <span>评分:</span>
+        <b>
+          <!-- 3星 -->
+          <i class="light"></i>
+          <i class="light"></i>
+          <i class="light"></i>
+          <i></i>
+          <i></i>
+        </b>
+        <span>好</span>
+      </div>
+    </div>
+    <div class="reader">
+      <h2>阅读人：6人</h2>
+      <ul>
+        <li>
+          <img src="./images/1.jpg">
+          <span>姓名姓名</span>
+        </li>
+        <li>
+          <img src="./images/1.jpg">
+          <span>姓名姓名</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 底部栏 -->
+  <footer>
+    <img src="./images/1.jpg">
+    <span>上海宏宇装饰股份有限公司</span>
+    <a href="tel:13800000001">立即咨询</a>
+  </footer>
+
+  <i id="close" onclick="closePreview()">×</i>
+
+  <script src="./swiper.min.js"></script>
+  <script>
+    var mySwiper = null;
+    var index = 0;
+    var urlList = [];
+
+    function preview(e) {
+      var evt = e || window.event;
+      index = evt.target.dataset.index;
+      urlList = [];
+      var els = evt.currentTarget.querySelectorAll('.img-item');
+      els.forEach(el => {
+        urlList.push({
+          type: el.dataset.type,
+          url: el.dataset.url
+        })
+      });
+
+      var fragment = document.createDocumentFragment();
+      var swiper = document.createElement('div');
+      swiper.className = 'swiper-container';
+      fragment.appendChild(swiper);
+      var wrapper = document.createElement('div');
+      wrapper.className = 'swiper-wrapper';
+      fragment.childNodes[0].appendChild(wrapper);
+
+      urlList.forEach(function (item, i) {
+        if(item.type == '1') {
+          // 图片
+          fragment.childNodes[0].childNodes[0].appendChild(createSlide());
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createContainer());
+          fragment.childNodes[0].childNodes[0].childNodes[i].childNodes[0].appendChild(createImg(item.url));
+        } else if(item.type == '2') {
+          // 视频
+          fragment.childNodes[0].childNodes[0].appendChild(createSlide());
+          fragment.childNodes[0].childNodes[0].childNodes[i].appendChild(createContainer());
+          fragment.childNodes[0].childNodes[0].childNodes[i].childNodes[0].appendChild(createVideo(item.url));
+        }
+      })
+
+      document.body.appendChild(fragment);
+      document.body.style.overflow = 'hidden';
+      mySwiper = new Swiper('.swiper-container', {
+        zoom: {
+          minRatio: 1
+        }
+      });
+      mySwiper.slideTo(index, 0);
+      document.getElementById('close').style.display = 'block';
+    }
+
+    function createSlide() {
+      var div = document.createElement('div');
+      div.className = 'swiper-slide';
+      return div;
+    }
+
+    function createContainer() {
+      var div = document.createElement('div');
+      div.className = 'swiper-zoom-container';
+      return div;
+    }
+
+    function createImg(src) {
+      var img = document.createElement('img');
+      img.src = src;
+      return img;
+    }
+
+    function createVideo(src) {
+      var video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      return video;
+    }
+
+    function closePreview(e) {
+      var swiper = document.querySelector('.swiper-container');
+      document.body.removeChild(swiper);
+      mySwiper = null;
+      document.getElementById('close').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+  </script>
+</body>
+</html>

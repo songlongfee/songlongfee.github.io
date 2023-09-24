@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div onclick="download()">download</div>
+
+  <script>
+    function download(params) {
+      axios({
+        method: 'get',
+        url: `https://cdn.e-shigong.com/company-167-image-1636357966-2021110815524699n654.pdf`,
+        responseType: 'blob'
+      }).then(function (res) {
+        if(res.status === 200) {
+          const blob = res.data;
+          let reader = new FileReader();
+          reader.readAsDataURL(blob);
+          reader.onload = function(e) {
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.download = `aaa.pdf`
+            a.href = e.target.result;
+            a.target = '_blank';
+            a.click();
+          }
+        } else if(res.data.code) {
+          alert(res.data.msg)
+        }
+      })
+    }
+    //   axios({
+    //     method: 'get',
+    //     url: `https://cdn.e-shigong.com/company-167-image-1636357966-2021110815524699n654.pdf`,
+    //     responseType: 'arraybuffer'
+    //   }).then(function (res) {
+    //     if (res.status !== 200) {
+    //       return res.json()
+    //     }
+    //     return res.arrayBuffer()
+    //   })
+    //   .then((blobRes) => {
+    //     // 生成 Blob 对象，设置 type 等信息
+    //     const e = new Blob([blobRes], {
+    //       type: 'application/octet-stream',
+    //       'Content-Disposition':'attachment'
+    //     })
+    //     // 将 Blob 对象转为 url
+    //     const link = window.URL.createObjectURL(e)
+    //     var a = document.createElement('a');
+    //     a.href = link;
+    //     a.download = `aaa.pdf`;
+    //     a.click();
+    //   }).catch(err => {
+    //     console.error(err)
+    //   })
+    // }
+  </script>
+</body>
+</html>
