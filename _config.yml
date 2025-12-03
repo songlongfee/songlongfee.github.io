@@ -5,9 +5,9 @@ header-img: img/post-bg-coffee.jpeg
 email: songlfneu@gmail.com
 description: "日志"
 keyword: "宋龙飞，博客，网络，日志，IT，Web，前端开发，设计，个人网站，网站开发，web应用，微信小程序，支付宝小程序"
-url: "http://songlongfee.github.io"          # your host, for absolute URL
+url: "http://songlfly.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/songlongfee/songlongfee.github.io.git" # you code repository
+github_repo: "https://github.com/songlfly/songlfly.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -20,7 +20,7 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 RSS: false
 # weibo_username:     qiubaiying
 zhihu_username:     SongLongfei
-github_username:    songlongfee
+github_username:    songlfly
 facebook_username:  Longfei Song
 jianshu_username:   cec2fb8ffe62
 #twitter_username:   qiubaiying
@@ -64,9 +64,9 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: bd24b78446d65eb4ae8c                            #生成的clientID
   clientSecret: 55953253d7bede6e7bad330846183ff31ef67579    #生成的clientSecret
-  repo: songlongfee.github.io    #仓库名称
-  owner: songlongfee    #github用户名
-  admin: songlongfee
+  repo: songlfly.github.io    #仓库名称
+  owner: songlfly    #github用户名
+  admin: songlfly
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
@@ -103,6 +103,6 @@ friends: [
         href: "https://www.jianshu.com/u/cec2fb8ffe62"
     },{
         title: "songlongfee-github",
-        href: "https://github.com/songlongfee"
+        href: "https://github.com/songlfly"
     }
 ]
